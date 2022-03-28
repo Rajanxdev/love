@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Space+Mono&display=swap" rel="stylesheet">
+    <title> ❤️ Love Sayari ❤️ </title>
+    <link rel="stylesheet" href="./Css/LovPropose.css">
+    <style>
+        /* css code  */
+        .babu {
+            position: absolute;
+            text-decoration: hwb(hue white GREEN);
+
+        }
+
+        .contan {
+            text-align: center;
+        }
+
+        .heart {
+            width: 300px;
+            left: auto;
+            overflow: visible;
+            -webkit-animation: 0.8s infinite beat;
+            animation: 0.8s infinite beat;
+
+        }
+
+        @-webkit-keyframes beat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contan">
+        <img src="./mario_toth_i_heart_you-removebg-preview.png" class="heart" alt="my heart">
+    </div>
+    <section>
+        <h1 class="title"></h1>
+        <div class="container">
+            <div class="joke">
+                <p></p>
+            </div>
+            <button> NEXT⏭️</button>
+        </div>
+    </section>
+
+
+    <!-- <div class="float-text">
+        <p></p>
+    </div> -->
+    
+
+    <!-- javaScript code -->
+<script>
+    const button = document.querySelector(".container button");
+const jokeDiv = document.querySelector(".container .joke p");
+
+document.addEventListener("DOMContentLoaded", getJock);
+
+button.addEventListener("click", getJock);
+
+async function getJock() {
+  const jokeData = await fetch("https://icanhazdadjoke.com/", {
+    headers: {
+      Accept: "application/json"
+    }
+  });
+  const jokeObj = await jokeData.json();
+  jokeDiv.innerHTML = jokeObj.joke;
+  console.log(jokeData);
+}
+// *********************
+// This Code is for only the floating card in right bottom corner
+// **********************
+
+const touchButton = document.querySelector(".float-text");
+const card = document.querySelector(".float-card-info");
+const close = document.querySelector(".gg-close-r");
+
+touchButton.addEventListener("click", moveCard);
+close.addEventListener("click", moveCard);
+
+function moveCard() {
+  card.classList.toggle("active");
+}
+
+</script>
+</body>
+
+</html>
